@@ -21,5 +21,6 @@ RUN 	apt-get update && \
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY gosu /usr/local/bin/gosu
+COPY colorize.sh /
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
