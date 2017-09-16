@@ -9,18 +9,22 @@ RUN 	apt-get update && \
 		g++-6 \
 		gdb \
 		make \
-		openocd \
-		dfu-util \
-		lcov \
-		bc \
 		git \
+		lcov \
 		pandoc \
 		texlive \
-		bash-completion && \
-	apt-get clean && rm -rf /var/lib/apt/lists/*
+		openocd \
+		dfu-util \
+		usbutils \
+		nano \
+		bc \
+		bash-completion \
+	&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY gosu /usr/local/bin/gosu
 COPY colorize.sh /
+
+#EXPOSE 3333
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
