@@ -18,6 +18,7 @@ RUN 	apt-get update && \
 		usbutils \
 		nano \
 		bc \
+		libarchive-dev \
 		bash-completion \
 	&& apt-get clean && rm -rf /var/lib/apt/lists/*
 
