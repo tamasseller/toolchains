@@ -4,10 +4,7 @@
 # Either use the LOCAL_USER_ID if passed in at runtime or
 # fallback
 
-USER_ID=${LOCAL_USER_ID:-9001}
-
-echo "Starting with UID : $USER_ID"
-useradd --shell /bin/bash -u $USER_ID -o -c "" -m user
+echo "Starting with user : $LOCAL_USER_NAME"
 export HOME=/home/user
 
-exec /usr/local/bin/gosu user "$@"
+exec /usr/local/bin/gosu $LOCAL_USER_NAME "$@"

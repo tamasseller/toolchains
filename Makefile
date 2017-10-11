@@ -13,7 +13,17 @@ CD_TO = ..
 endif
 
 enter-the-matrix: get-docker docker-image-tag
-	cd $(CD_TO) && docker run --privileged -it -v $$PWD:$$PWD -w $$PWD -v /dev/bus/usb/:/dev/bus/usb -e LOCAL_USER_ID=`id -u $$USER` tools bash
+	cd $(CD_TO) && \
+	docker run \
+		--privileged \
+		-w $$PWD \
+		-v $$PWD:$$PWD \
+		-v /dev/bus/usb/:/dev/bus/usb \
+		-v /etc/group:/etc/group:ro \
+		-v /etc/passwd:/etc/passwd:ro \
+		-e LOCAL_USER_ID=`id -u $$USER` \
+		-e LOCAL_USER_NAME=$$USER \
+		-it tools bash
 
 clean:
 	@rm docker-image-tag 
