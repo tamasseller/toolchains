@@ -17,6 +17,7 @@ RUN 	apt-get update && \
 		dfu-util \
 		usbutils \
 		nano \
+		valgrind \
 		bc \
 		libarchive-dev \
 		bash-completion \
