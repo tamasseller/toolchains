@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:buster-20171210
 
 RUN 	apt-get update && \
 	apt-get install -y \
